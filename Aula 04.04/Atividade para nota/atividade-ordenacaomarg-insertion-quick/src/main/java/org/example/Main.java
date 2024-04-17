@@ -1,69 +1,13 @@
 package org.example;
 
-import java.util.Arrays;
-
 public class Main {
-    public static void selectionShort(int[] v) {
-        for (int i = 0; i < v.length - 1; i++) {
-            for (int j = i + 1; j < v.length; j++) {
-                if (v[j] < v[i]) {
-                    int auxiliar = v[i];
-                    v[i] = v[j];
-                    v[j] = auxiliar;
-                }
-            }
-        }
-    }
-
-    public static void selectionSortOtimizado(int[] v) {
-        for (int i = 0; i < v.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < v.length; j++) {
-                if (v[j] < v[minIndex]) {
-                    minIndex = j;
-                }
-            }
-            int temp = v[minIndex];
-            v[minIndex] = v[i];
-            v[i] = temp;
-        }
-    }
-
-    public static void bubbleSort(int[] v) {
-        for (int i = 0; i < v.length; i++) {
-            for (int j = 0; j < v.length - 1 - i; j++) {
-                if (v[j] > v[j + 1]) {
-                    int aux = v[j];
-                    v[j] = v[j + 1];
-                    v[j + 1] = aux;
-                }
-            }
-        }
-    }
-
-    public static double pesquisaBinaria(int[] vetor, int valor) {
-        int inicio = 0;
-        int fim = vetor.length - 1;
-        int meio;
-        while (inicio <= fim) {
-            meio = (inicio + fim) / 2;
-            if (vetor[meio] == valor) {
-                return meio;
-            } else if (vetor[meio] < valor) {
-                inicio = meio + 1;
-            } else {
-                fim = meio - 1;
-            }
-        }
-        return -1;
-    }
 
     public static void insertionSortHerois(Heroi[] herois) {
         for (int i = 1; i < herois.length; i++) {
             Heroi key = herois[i];
             int j = i - 1;
 
-            while (j >= 0 && herois[j].getForca() > key.getForca()) {
+            while (j >= 0 && herois[j].getIdade() > key.getIdade()) {
                 herois[j + 1] = herois[j];
                 j = j - 1;
             }
@@ -134,7 +78,7 @@ public class Main {
         int i = (baixo - 1);
 
         for (int j = baixo; j < alto; j++) {
-            if (herois[j].getForca() < pivo.getForca()) {
+            if (herois[j].getPoder() < pivo.getPoder()) {
                 i++;
 
                 Heroi temp = herois[i];
@@ -169,7 +113,7 @@ public class Main {
         }
         quickSortHerois(herois, 0, herois.length - 1);
 
-        System.out.println("\nApós a ordenação por força:");
+        System.out.println("\nApós a ordenação por idade:");
         for (Heroi heroi : herois) {
             System.out.println(heroi);
         }
@@ -182,33 +126,7 @@ public class Main {
         }
 
         insertionSortHerois(herois);
-        System.out.println("\nApós a ordenação por força:");
-        for (Heroi heroi : herois) {
-            System.out.println(heroi);
-        }
-
-        System.out.println("Lista de heróis desordenada:");
-        for (Heroi heroi : herois) {
-            System.out.println(heroi);
-        }
-
-        // Convertendo a força dos heróis em um array de inteiros para ordenar
-        int[] forcaHerois = new int[herois.length];
-        for (int i = 0; i < herois.length; i++) {
-            forcaHerois[i] = herois[i].getForca();
-        }
-
-        // Ordenando o array de inteiros usando os diferentes métodos de ordenação
-        selectionShort(forcaHerois);
-        // Ou selectionSortOtimizado(forcaHerois);
-        // Ou bubbleSort(forcaHerois);
-
-        // Atualizando a ordem dos heróis com base na ordem dos valores ordenados
-        for (int i = 0; i < herois.length; i++) {
-            herois[i].setForca(forcaHerois[i]);
-        }
-
-        System.out.println("\nLista de heróis ordenada por força:");
+        System.out.println("\nApós a ordenação por poder:");
         for (Heroi heroi : herois) {
             System.out.println(heroi);
         }
