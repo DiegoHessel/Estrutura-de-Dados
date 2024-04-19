@@ -32,13 +32,13 @@ public class Main {
                     System.out.print("Digite o esquadrão do herói: ");
                     String squad = scanner.next();
                     Heroi heroi = new Heroi(id, name, power, age, force, ability, squad);
-lista.adiciona(heroi);
+                    lista.adiciona(heroi);
                     break;
                 case 2:
                     System.out.printf("%10s %-10s %10s %10s %10s %-30s %-30s\n", "ID", "Nome", "Poder", "Idade", "Força", "Habilidade", "Esquadrão");
                     for (int i = 0; i < lista.getTamanho(); i++) {
                         Heroi h = lista.getElemento(i);
-                        System.out.printf("%-10d %-10s %-10.2f %-10d %-10.2f %-10s %-10s\n", h.getId(), h.getNome(), h.getPoder(), h.getIdade(), h.getForca(), h.getHabilidade(), h.getSquad());
+                        System.out.printf("%10d %-10.10s %-10.2f %10d %10.2f %-10.10s %-10.10s\n", h.getId(), h.getNome(), h.getPoder(), h.getIdade(), h.getForca(), h.getHabilidade(), h.getSquad());
                     }
                     break;
                 case 3:

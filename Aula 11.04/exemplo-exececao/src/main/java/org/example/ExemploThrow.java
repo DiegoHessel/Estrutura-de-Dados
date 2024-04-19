@@ -9,18 +9,18 @@ public class ExemploThrow {
             System.out.println("Digite a nota 1");
             Double nota1 = leitor.nextDouble();
             if (nota1 < 0 || nota1 > 10.0) {
-                throw new Exception("Valor invalido nota1");
+                throw new LimeteUtrapassadoException("Valor invalido nota 1");
             }
             System.out.println("Digite a nota 2");
             Double nota2 = leitor.nextDouble();
             if (nota2 < 0 || nota2 > 10.0) {
-                throw new Exception("Valor invalido nota2");
+                throw new LimeteUtrapassadoException("Valor invalido nota2");
             }
             Double media = (nota1 + nota2) / 2;
             System.out.println("Media=" + media);
         }
-        catch (Exception erro){
-            System.out.println(erro);
+        catch (LimeteUtrapassadoException erro){
+            System.out.println(erro + " - " +erro.dataHora);
             erro.printStackTrace();
         }
     }
